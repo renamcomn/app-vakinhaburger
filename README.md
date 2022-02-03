@@ -1,4 +1,4 @@
-# vakinha_burguer_mobile
+# vakinha_burger_mobile
 
 A new Flutter project.
 
