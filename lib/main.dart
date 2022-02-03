@@ -14,6 +14,7 @@ class VakinhaBurgerrMainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Vakinha Burger',
       theme: VakinhaUI.theme,
       getPages: [
