@@ -43,7 +43,7 @@ class LoginPage extends StatelessWidget {
                       const SizedBox(
                         height: 30,
                       ),
-                      const VakinhaTextformfield(label: 'Senha'),
+                      const VakinhaTextformfield(label: 'Senha', obscureText: true,),
                       const SizedBox(
                         height: 50,
                       ),
