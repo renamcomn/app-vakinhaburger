@@ -1,4 +1,5 @@
 import 'package:get/route_manager.dart';
+import 'package:vakinha_burguer_mobile/app/modules/auth/register/register_bindings.dart';
 import '../modules/auth/login/login_page.dart';
 import '../modules/auth/register/register_page.dart';
 class AuthRouters {
@@ -11,6 +12,7 @@ class AuthRouters {
     ),
      GetPage(
       name: '/auth/register',
+      binding: RegisterBindings(),
       page: () => const RegisterPage(),
     ),
   ];
