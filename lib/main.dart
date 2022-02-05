@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:vakinha_burguer_mobile/app/core/bindings/application_binding.dart';
 import 'package:vakinha_burguer_mobile/app/core/ui/vakinha_ui.dart';
 import 'package:vakinha_burguer_mobile/app/routes/auth_routers.dart';
+import 'package:vakinha_burguer_mobile/app/routes/home_routers.dart';
 import 'package:vakinha_burguer_mobile/app/routes/splash_routers.dart';
 
-void main() {
+Future<void> main() async {
+  await GetStorage.init();
   runApp(const VakinhaBurgerrMainApp());
 }
 
@@ -22,7 +25,8 @@ class VakinhaBurgerrMainApp extends StatelessWidget {
       initialBinding: ApplicationBinding(),
       getPages: [
         ...SplashRouters.routers,
-        ...AuthRouters.routers
+        ...AuthRouters.routers,
+        ...HomeRouters.routers
       ],
     );
   }
