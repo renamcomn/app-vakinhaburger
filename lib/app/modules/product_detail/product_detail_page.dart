@@ -74,8 +74,8 @@ class ProductDetailPage extends GetView<ProductDetailController> {
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: VakinhaButton(
-                      onPressed: () {},
-                      label: 'ADICIONAR',
+                      onPressed: controller.addProductInShoppingCart,
+                      label: controller.alreadyAdded ? 'ATUALIZAR' : 'ADICIONAR',
                       width: context.width,
                     ),
                   )

@@ -4,6 +4,6 @@ import './product_detail_controller.dart';
 class ProductDetailBindings implements Bindings {
     @override
     void dependencies() {
-        Get.put(ProductDetailController());
+        Get.put(ProductDetailController(shoppingCartService: Get.find()));
     }
 }
