@@ -7,7 +7,10 @@ import 'package:validatorless/validatorless.dart';
 import './shopping_cart_controller.dart';
 
 class ShoppingCartPage extends GetView<ShoppingCartController> {
-  const ShoppingCartPage({Key? key}) : super(key: key);
+
+  final _formKey = GlobalKey<FormState>();
+
+  ShoppingCartPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +24,7 @@ class ShoppingCartPage extends GetView<ShoppingCartController> {
                   minWidth: constrains.maxWidth),
               child: IntrinsicHeight(
                 child: Form(
+                  key: _formKey,
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Visibility(
@@ -103,7 +107,12 @@ class ShoppingCartPage extends GetView<ShoppingCartController> {
                           _CpfField(),
                           Spacer(),
                           VakinhaButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                final formValid = _formKey.currentState?.validate() ?? false;
+                                if(formValid) {
+                                  controller.createOrder();
+                                }
+                              },
                               label: 'FINALIZAR',
                               width: context.width)
                         ],
@@ -130,12 +139,10 @@ class _AddressField extends GetView<ShoppingCartController> {
       children: [
         SizedBox(
           height: 35,
-          child: Expanded(
-            child: Text(
-              'Endereço de entrega',
-              style: TextStyle(fontSize: 18),
-              overflow: TextOverflow.ellipsis,
-            ),
+          child: Text(
+            'Endereço de entrega',
+            style: TextStyle(fontSize: 18),
+            overflow: TextOverflow.ellipsis,
           ),
         ),
         TextFormField(
@@ -167,12 +174,10 @@ class _CpfField extends GetView<ShoppingCartController> {
       children: [
         SizedBox(
           height: 35,
-          child: Expanded(
-            child: Text(
-              'CPF',
-              style: TextStyle(fontSize: 18),
-              overflow: TextOverflow.ellipsis,
-            ),
+          child: Text(
+            'CPF',
+            style: TextStyle(fontSize: 18),
+            overflow: TextOverflow.ellipsis,
           ),
         ),
         TextFormField(
